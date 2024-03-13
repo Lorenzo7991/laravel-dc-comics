@@ -22,8 +22,8 @@ class CreateComicsTable extends Migration
             $table->string('series');
             $table->date('sale_date');
             $table->string('type');
-            $table->string('artists'); // Campo per gli artisti
-            $table->string('writers'); // Campo per gli scrittori
+            $table->string('artists');
+            $table->string('writers');
             $table->timestamps();
         });
     }
