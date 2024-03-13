@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    @yield('welcome-content')
+    @yield('main-content')
     
 
 </body>
