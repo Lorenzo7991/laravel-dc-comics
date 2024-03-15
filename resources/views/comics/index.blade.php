@@ -17,8 +17,8 @@
                 <img src="{{ $comic->thumb }}" class="card-img-top img-fluid mx-auto" alt="{{ $comic->title }}" style="max-width: 200px; max-height: 200px;">
                 <div class="card-body">
                     <h5 class="card-title">{{ $comic->title }}</h5>
-                    <a href="{{ route('comics.show', $comic) }}" class="btn btn-primary">Dettagli</a>
                 </div>
+                <a href="{{ route('comics.show', $comic) }}" class="btn btn-primary">Dettagli</a>
             </div>
         </div>
         @endforeach

@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
-@section('title', '{{$comic->title}}')
-
+@section('title', $comic->title)
 
 @section('main-content')
     <div class="card">
@@ -23,6 +22,8 @@
                     <p><strong>Writers:</strong> {{ $comic->writers }}</p>
                 </div>
             </div>
+            <a href="{{ route('comics.index') }}" class="btn btn-secondary mt-3 mx-3">Torna Indietro</a>
+            <a href="{{ route('comics.edit', $comic) }}" class="btn btn-primary mt-3 mx-3">Modifica Fumetto</a>
         </div>
     </div>
 @endsection
