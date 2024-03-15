@@ -19,7 +19,14 @@
 </head>
 
 <body>
-    @yield('main-content')
+    @include('header.header-content')
+    <div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            @yield('main-content')
+        </div>
+    </div>
+</div>
     
 
 </body>

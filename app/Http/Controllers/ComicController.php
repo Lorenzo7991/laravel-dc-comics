@@ -13,7 +13,7 @@ class ComicController extends Controller
     public function index()
     {
         $comics = Comic::all();
-        return view('index', compact('comics'));
+        return view('comics.index', compact('comics'));
     }
 
     /**
@@ -21,7 +21,7 @@ class ComicController extends Controller
      */
     public function create()
     {
-        //
+        return view('comics.create');
     }
 
     /**
@@ -29,7 +29,23 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'thumb' => 'required|url',
+            'price' => 'required|numeric',
+            'series' => 'required|string|max:255',
+            'sale_date' => 'required|date',
+            'type' => 'required|string|max:255',
+            'artists' => 'required|string|max:255',
+            'writers' => 'required|string|max:255',
+        ]);
+
+        $comic = new Comic();
+        $comic->fill($validatedData);
+        $comic->save();
+
+        return redirect()->route('comics.index')->with('success', 'Fumetto aggiunto con successo!');
     }
 
     /**
