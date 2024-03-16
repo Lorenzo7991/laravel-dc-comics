@@ -18,7 +18,10 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $comic->title }}</h5>
                 </div>
-                <a href="{{ route('comics.show', $comic) }}" class="btn btn-primary">Dettagli</a>
+                <div class="card-footer">
+                    <a href="{{ route('comics.show', $comic) }}" class="btn btn-primary">Dettagli</a>
+                    <a href="{{ route('comics.edit', $comic) }}" class="btn btn-warning">Modifica</a>
+                </div>
             </div>
         </div>
         @endforeach

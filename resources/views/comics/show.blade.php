@@ -22,8 +22,10 @@
                     <p><strong>Writers:</strong> {{ $comic->writers }}</p>
                 </div>
             </div>
-            <a href="{{ route('comics.index') }}" class="btn btn-secondary mt-3 mx-3">Torna Indietro</a>
-            <a href="{{ route('comics.edit', $comic) }}" class="btn btn-primary mt-3 mx-3">Modifica Fumetto</a>
+        </div>
+        <div class="card-footer">
+            <a href="{{ route('comics.index') }}" class="btn btn-secondary">Torna Indietro</a>
+            <a href="{{ route('comics.edit', $comic) }}" class="btn btn-warning">Modifica Fumetto</a>
         </div>
     </div>
 @endsection
