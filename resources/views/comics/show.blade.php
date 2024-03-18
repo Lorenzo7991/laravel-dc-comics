@@ -26,6 +26,11 @@
         <div class="card-footer">
             <a href="{{ route('comics.index') }}" class="btn btn-secondary">Torna Indietro</a>
             <a href="{{ route('comics.edit', $comic) }}" class="btn btn-warning">Modifica Fumetto</a>
+            <form action="{{ route('comics.destroy', $comic) }}" method="POST" class="d-inline">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Sei sicuro di voler eliminare questo fumetto?')">Elimina Fumetto</button>
+            </form>
         </div>
     </div>
 @endsection
