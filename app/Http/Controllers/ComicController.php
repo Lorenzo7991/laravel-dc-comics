@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comic;
-use Illuminate\Http\Request;
+use App\Http\Requests\ComicRequest;
 
 class ComicController extends Controller
 {
@@ -35,21 +35,9 @@ class ComicController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ComicRequest $request)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:150',
-            'description' => 'required|string',
-            'thumb' => 'required|url',
-            'price' => 'required|numeric|min:0',
-            'series' => 'required|string|max:150',
-            'sale_date' => 'required|date',
-            'type' => 'required|string|max:50',
-            'artists' => 'required|string|max:255',
-            'writers' => 'required|string|max:255',
-        ]);
-
-        $comic = Comic::create($validatedData);
+        $comic = Comic::create($request->validated());
 
         return redirect()->route('comics.show', $comic)->with('success', 'Fumetto aggiunto con successo!');
     }
@@ -57,21 +45,9 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comic $comic)
+    public function update(ComicRequest $request, Comic $comic)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:150',
-            'description' => 'required|string',
-            'thumb' => 'required|url',
-            'price' => 'required|numeric|min:0',
-            'series' => 'required|string|max:150',
-            'sale_date' => 'required|date',
-            'type' => 'required|string|max:50',
-            'artists' => 'required|string|max:255',
-            'writers' => 'required|string|max:255',
-        ]);
-
-        $comic->update($validatedData);
+        $comic->update($request->validated());
 
         return redirect()->route('comics.show', $comic)->with('success', 'Fumetto aggiornato con successo!');
     }
